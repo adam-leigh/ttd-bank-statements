@@ -11,3 +11,6 @@ class DataLoader:
         """Initialize DataLoader with base directory path."""
         self.base_path: Final[Path] = base_path
         self.raw_path: Final[Path] = self.base_path / "raw"
+        self.processed_path: Final[Path] = self.base_path / "processed"
+        self.interim_path: Final[Path] = self.base_path / "interim"
+        self.schemas_path: Final[Path] = self.base_path / "schemas"
