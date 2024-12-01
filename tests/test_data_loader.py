@@ -12,3 +12,7 @@ def test_data_loader_initialization(data_loader: DataLoader) -> None:
     assert data_loader.base_path.exists(), "Data directory should exist"
     assert data_loader.base_path.is_dir(), "Data path should be a directory"
 
+def test_raw_directory_exists(data_loader: DataLoader) -> None:
+    """Test that raw data directory exists."""
+    assert data_loader.raw_path.exists(), "Raw data directory should exist"
+    assert data_loader.raw_path.is_dir(), "Raw data path should be a directory"
