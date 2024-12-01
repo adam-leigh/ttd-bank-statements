@@ -22,3 +22,11 @@ def test_processing_directories_exist(data_loader: DataLoader) -> None:
     assert data_loader.processed_path.exists(), "Processed directory should exist"
     assert data_loader.interim_path.exists(), "Interim directory should exist"
     assert data_loader.schemas_path.exists(), "Schemas directory should exist"
+
+def test_get_bank_statements(data_loader: DataLoader) -> None:
+    """Test getting bank statements by account type."""
+    ops_statements = data_loader.get_bank_statements(account="ops")
+    assert all(p.name.startswith('statement-03') for p in ops_statements)
+
+    main_statements = data_loader.get_bank_statements(account="main")
+    assert all(p.name.startswith('statement-24') for p in main_statements)
